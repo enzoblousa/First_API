@@ -1,0 +1,6 @@
+@ApiFicticia_HostAddress = http://localhost:5189
+
+GET {{ApiFicticia_HostAddress}}/weatherforecast/
+Accept: application/jsondotne
+
+###

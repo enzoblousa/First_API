@@ -1,0 +1,14 @@
+C:\projetos\ceubzin\ClienteServidorAPI\ClienteConsole\bin\Debug\net9.0\ClienteConsole.exe
+C:\projetos\ceubzin\ClienteServidorAPI\ClienteConsole\bin\Debug\net9.0\ClienteConsole.deps.json
+C:\projetos\ceubzin\ClienteServidorAPI\ClienteConsole\bin\Debug\net9.0\ClienteConsole.runtimeconfig.json
+C:\projetos\ceubzin\ClienteServidorAPI\ClienteConsole\bin\Debug\net9.0\ClienteConsole.dll
+C:\projetos\ceubzin\ClienteServidorAPI\ClienteConsole\bin\Debug\net9.0\ClienteConsole.pdb
+C:\projetos\ceubzin\ClienteServidorAPI\ClienteConsole\obj\Debug\net9.0\ClienteConsole.GeneratedMSBuildEditorConfig.editorconfig
+C:\projetos\ceubzin\ClienteServidorAPI\ClienteConsole\obj\Debug\net9.0\ClienteConsole.AssemblyInfoInputs.cache
+C:\projetos\ceubzin\ClienteServidorAPI\ClienteConsole\obj\Debug\net9.0\ClienteConsole.AssemblyInfo.cs
+C:\projetos\ceubzin\ClienteServidorAPI\ClienteConsole\obj\Debug\net9.0\ClienteConsole.csproj.CoreCompileInputs.cache
+C:\projetos\ceubzin\ClienteServidorAPI\ClienteConsole\obj\Debug\net9.0\ClienteConsole.dll
+C:\projetos\ceubzin\ClienteServidorAPI\ClienteConsole\obj\Debug\net9.0\refint\ClienteConsole.dll
+C:\projetos\ceubzin\ClienteServidorAPI\ClienteConsole\obj\Debug\net9.0\ClienteConsole.pdb
+C:\projetos\ceubzin\ClienteServidorAPI\ClienteConsole\obj\Debug\net9.0\ClienteConsole.genruntimeconfig.cache
+C:\projetos\ceubzin\ClienteServidorAPI\ClienteConsole\obj\Debug\net9.0\ref\ClienteConsole.dll

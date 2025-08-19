@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Projeto Produtos</title>
+    <style>
+         body { font-family: 'Courier New', Courier, monospace; }
+        .produto { border: 1px solid #ddd; padding: 15px; margin: 10px; border-radius: 5px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        button { background: #007bff; color: white; border: none; padding: 10px 15px; cursor: pointer; }
+        form { margin: 20px 0; padding: 20px; background: #f5f5f5; border-radius: 5px; }
+        .body{  font-family: 'Courier New', Courier, monospace; }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Sistema de Gerenciamento de Produtos</h1>
+    </div>
+
+    <!-- Formulário para adicionar produto -->
+    <form id="formProduto">
+        <h3>➕ Adicionar Novo Produto</h3>
+        <input type="text" id="nome" placeholder="Nome do produto" required>
+        <input type="number" id="preco" placeholder="Preço" step="0.01" required>
+        <input type="number" id="estoque" placeholder="Estoque" required>
+        <input type="text" id="categoria" placeholder="Categoria" required>
+        <button type="submit" class="body">Adicionar Produto</button>
+    </form>
+
+    <!-- Lista de produtos -->
+    <h2>Produtos Cadastrados</h2>
+    <div id="produtos" class="grid"></div>
+
+    <script>
+        const API_URL = 'http://localhost:5189/api';
+
+        // Carregar produtos ao iniciar
+        document.addEventListener('DOMContentLoaded', carregarProdutos);
+
+        // Buscar produtos da API
+        async function carregarProdutos() {
+            try {
+                const response = await fetch(`${API_URL}/produtos`);
+                const produtos = await response.json();
+                exibirProdutos(produtos);
+            } catch (error) {
+                console.error('Erro ao carregar produtos:', error);
+            }
+        }
+
+        // Exibir produtos na tela
+        function exibirProdutos(produtos) {
+            const container = document.getElementById('produtos');
+            container.innerHTML = produtos.map(produto => `
+                <div class="produto">
+                    <h3>${produto.nome}</h3>
+                    <p>💰 Preço: R$ ${produto.preco}</p>
+                    <p>📦 Estoque: ${produto.estoque} unidades</p>
+                    <p>🏷️ Categoria: ${produto.categoria}</p>
+                    <p>📅 Criado em: ${new Date(produto.dataCriacao).toLocaleDateString()}</p>
+                </div>
+            `).join('');
+        }
+
+        // Adicionar novo produto
+        document.getElementById('formProduto').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const novoProduto = {
+                nome: document.getElementById('nome').value,
+                preco: parseFloat(document.getElementById('preco').value),
+                estoque: parseInt(document.getElementById('estoque').value),
+                categoria: document.getElementById('categoria').value
+            };
+
+            try {
+                const response = await fetch(`${API_URL}/produtos`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(novoProduto)
+                });
+
+                if (response.ok) {
+                    alert('Produto adicionado com sucesso!');
+                    document.getElementById('formProduto').reset();
+                    carregarProdutos();
+                }
+            } catch (error) {
+                console.error('Erro ao adicionar produto:', error);
+            }
+        });
+    </script>
+</body>
+</html>
